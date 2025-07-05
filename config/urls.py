@@ -7,4 +7,5 @@ urlpatterns = [
     path('api/', include('ingestion.urls')),
     path('api/', include('scoring.urls')),
     path('api/', include('audit.urls')),
+    path('api/', include('users.urls'))
 ]
