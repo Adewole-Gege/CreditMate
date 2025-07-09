@@ -1,9 +1,12 @@
 import os
 from pathlib import Path
+from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parent.parent
+load_dotenv(dotenv_path=BASE_DIR / '.env')
 
 SECRET_KEY = 'replace-me'
+OPENROUTER_API_KEY = os.getenv('OPENROUTER_API_KEY', "creditmate-openrouter-api-key")
 DEBUG = True
 ALLOWED_HOSTS = []
 
