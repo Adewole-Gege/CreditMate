@@ -18,11 +18,10 @@ INSTALLED_APPS = [
     'rest_framework',
     'business',
     'ingestion',
-    'scoring',
-    'audit',
     'core',
     'users',
     'rest_framework_simplejwt',
+    'rest_framework_simplejwt.token_blacklist',
 ]
 
 MIDDLEWARE = [
