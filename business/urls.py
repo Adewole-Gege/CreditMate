@@ -1,7 +1,7 @@
-from django.urls import path
-from .views import BusinessListCreateView, BusinessRetrieveUpdateDeleteView
+from .views import BusinessViewSet
+from rest_framework.routers import DefaultRouter
 
-urlpatterns = [
-    path('businesses/', BusinessListCreateView.as_view(), name='business-list-create'),
-    path('businesses/<int:id>/', BusinessRetrieveUpdateDeleteView.as_view(), name='business-detail'),
-]
+router = DefaultRouter()
+router.register('businesses', BusinessViewSet, basename='business')
+
+urlpatterns = router.urls
