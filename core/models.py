@@ -1,15 +1,17 @@
 from django.db import models
-from business.models import SME #TODO: Ensure this import matches actual SME model location
+from business.models import Business  # TODO: Ensure this import matches actual SME model location
 
+# If SME is the same as Business, use Business. Otherwise, import the correct SME model.
+# Here, we assume SME == Business for demonstration.
+
+RISK_LEVEL_CHOICES = (
+    ('Low', 'Low'),
+    ('Medium', 'Medium'),
+    ('High', 'High'),
+)
 
 class CreditScore(models.Model):
-    RISK_LEVEL_CHOICES = (
-        ('Low', 'Low'),
-        ('Medium', 'Medium'),
-        ('High', 'High'),
-    )
-
-    sme = models.OneToOneField(SME, on_delete=models.CASCADE, related_name='credit_score')
+    sme = models.OneToOneField(Business, on_delete=models.CASCADE, related_name='credit_score')
     score = models.PositiveIntegerField(help_text="Credit score between 0 - 1000")
     risk_level = models.CharField(max_length=10, choices=RISK_LEVEL_CHOICES, help_text="Automated risk classification based on score thresholds")
     data_version = models.CharField(max_length=50, default="v1-basic-rules", help_text="Version of the scoring logic applied")
