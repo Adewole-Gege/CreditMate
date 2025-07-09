@@ -1,12 +1,14 @@
 from django.urls import path
 
-from ingestion.views import upload_transactions, get_business_transactions
+from ingestion.views import UploadBankStatementView, DownloadBankStatementView
 
 urlpatterns = [
-    path('upload-transactions/<int:business_id>',
-         upload_transactions,
-         name='upload-transactions'),
-    path('get-transactions/<int:business_id>',
-         get_business_transactions,
-         name='get-transactions'),
+      path(
+        'upload-statement/<int:business_id>/',
+        UploadBankStatementView.as_view(),
+        name='upload-statement'),
+      path(
+        'download-statement/<uuid:statement_id>/',
+        DownloadBankStatementView.as_view(),
+        name='download-statement'),
 ]
