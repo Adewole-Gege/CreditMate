@@ -4,7 +4,7 @@ from ingestion.views import UploadBankStatementView, DownloadBankStatementView
 
 urlpatterns = [
       path(
-        'upload-statement/<int:business_id>/',
+        'upload-statement/<uuid:business_id>/',
         UploadBankStatementView.as_view(),
         name='upload-statement'),
       path(

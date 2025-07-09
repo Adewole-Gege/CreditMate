@@ -4,11 +4,12 @@ import tempfile
 import pandas as pd
 
 from django.http import HttpResponse
+from django.utils.timezone import now
+
 from rest_framework.views import APIView
 from rest_framework.parsers import MultiPartParser
 from rest_framework.response import Response
 from rest_framework import status
-from django.utils.timezone import now
 
 from business.models import Business
 from .models import BankStatement
