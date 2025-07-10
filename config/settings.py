@@ -7,8 +7,9 @@ from decouple import config
 BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(dotenv_path=BASE_DIR / '.env')
 
-SECRET_KEY = 'replace-me'
-OPENROUTER_API_KEY = os.getenv('OPENROUTER_API_KEY')
+SECRET_KEY = 'django-insecure-)xq4+p0@l$^*6@rqulz7!u54i6rcl^sjf$==&a91doa%3u%#k7'
+OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
+OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions"
 DEBUG = True
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 

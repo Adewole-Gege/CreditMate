@@ -1,14 +1,13 @@
 import os
+import re
+import json
 import pandas as pd
 import requests
-from dotenv import load_dotenv
-from pathlib import Path
+from django.conf import settings
 
-# Load API key from environment or fallback to default
-OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
-
-# OpenRouter endpoint for chat completion
-OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
+# Load API key from Django settings or environment
+OPENROUTER_API_KEY = getattr(settings, "OPENROUTER_API_KEY", None)
+OPENROUTER_URL = getattr(settings, "OPENROUTER_API_URL", "https://openrouter.ai/api/v1/chat/completions")
 
 
 def ask_ai_to_structure(text):
@@ -21,6 +20,9 @@ def ask_ai_to_structure(text):
     - description: transaction description
     - amount: positive (credit) or negative (debit)
     - balance: account balance after the transaction
+    - transaction_type: credit or debit
+    - channel: e.g., POS, TRANSFER, USSD, ATM
+    - counterparty: if available
 
     Parameters:
     - text (str): Raw bank statement text extracted from PDF
@@ -31,9 +33,11 @@ def ask_ai_to_structure(text):
     Raises:
     - Exception: If OpenRouter API call fails or returns invalid format
     """
+    if not OPENROUTER_API_KEY:
+        raise Exception("OpenRouter API key not set in settings.")
 
-    # Prompt instructing the AI to format output in strict JSON
-    prompt = f"""Extract the bank statement table from the following text. Each row must contain:
+    prompt = f"""
+Extract the bank statement table from the following text. Each row must contain:
 - date
 - amount
 - balance
@@ -42,7 +46,7 @@ def ask_ai_to_structure(text):
 - channel (POS, TRANSFER, USSD, CASH, ATM, etc.)
 - counterparty (if available)
 
-Return result as JSON array of objects.
+Return only a **valid JSON array of objects** — no explanation, no markdown, no headings.
 
 Bank statement text:
 {text}
@@ -55,15 +59,14 @@ Bank statement text:
         "X-Title": "BankStatementExtractor"
     }
 
-    data = {
+    payload = {
         "model": "tngtech/deepseek-r1t2-chimera:free",
         "messages": [{"role": "user", "content": prompt}],
         "temperature": 0.2
     }
 
-    response = requests.post(OPENROUTER_URL, headers=headers, json=data)
+    response = requests.post(OPENROUTER_URL, headers=headers, json=payload)
 
-    # If request failed or invalid response
     if response.status_code != 200:
         try:
             error = response.json()
@@ -71,10 +74,16 @@ Bank statement text:
             error = response.text
         raise Exception(f"OpenRouter API Error: {error}")
 
-    # Extract JSON from response text
-    content = response.json()['choices'][0]['message']['content']
-
     try:
-        return pd.read_json(content)
+        content = response.json()['choices'][0]['message']['content']
+        # Extract only the JSON array from the content
+        match = re.search(r"\[\s*{.*?}\s*\]", content, re.DOTALL)
+        if not match:
+            raise ValueError("No JSON array found in AI response.")
+
+        json_data = match.group(0)
+        data = json.loads(json_data)
+        return pd.DataFrame(data)
+
     except Exception as e:
         raise ValueError(f"Failed to convert AI response to DataFrame: {e}")
