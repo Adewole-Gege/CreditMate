@@ -73,9 +73,9 @@ class UploadBankStatementView(APIView):
             df['amount'] = pd.to_numeric(df['amount'], errors='coerce')
             df['balance'] = pd.to_numeric(df['balance'], errors='coerce')
             df.dropna(subset=['date', 'amount', 'balance'], inplace=True)
-
-            start_date = df['date'].min().date()
-            end_date = df['date'].max().date()
+            
+            start_date = pd.to_datetime(df['date'].min(), errors='coerce').date()
+            end_date = pd.to_datetime(df['date'].max(), errors='coerce').date()
 
             total_income = safe_decimal(df[df['amount'] > 0]['amount'].sum())
             total_expenditure = safe_decimal(df[df['amount'] < 0]['amount'].sum())

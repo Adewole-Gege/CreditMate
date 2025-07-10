@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     'ingestion',
     'core',
     'users',
+    'audit',
     'rest_framework_simplejwt',
     'rest_framework_simplejwt.token_blacklist',
 ]

@@ -1,8 +1,14 @@
 from django.db import models
 from django.conf import settings
+import uuid
 
 class Business(models.Model):
     # Basic Info
+    uuid = models.UUIDField(
+        default=uuid.uuid4,
+        editable=False,
+        unique=True
+    )
     name = models.CharField(
         max_length=255,
         unique=True
@@ -65,7 +71,9 @@ class Business(models.Model):
 
     class Meta:
         db_table = "businesses"
-        ordering = ['-created_at']
+        ordering = [
+            '-created_at'
+        ]
         verbose_name = 'Business'
         verbose_name_plural = 'Businesses'
 

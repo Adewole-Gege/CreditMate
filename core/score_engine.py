@@ -1,17 +1,17 @@
-# core/score_engine.py
 from datetime import timedelta
 from collections import defaultdict
 from django.utils import timezone
-from ingestion.models import FinancialRecord
-from business.models import SME
-from decimal import Decimal
+from ingestion.models import BankTransaction as FinancialRecord
+from business.models import Business
 import statistics
+from decimal import Decimal
 
 
 class CreditScoringEngine:
-    def __init__(self, sme: SME):
-        self.sme = sme
-        self.records = FinancialRecord.objects.filter(sme=sme).order_by('date')
+    def __init__(self, business: Business):
+        self.business = business
+        # Fixed: follow the ForeignKey from BankTransaction → statement → business
+        self.records = FinancialRecord.objects.filter(statement__business=business).order_by('date')
 
     def calculate_score(self):
         if not self.records.exists():
@@ -66,7 +66,8 @@ class CreditScoringEngine:
         return 250
 
     def _score_cash_flow_stability(self):
-        balances = [float(r.balance_after) for r in self.records if r.balance_after is not None]
+        # NOTE: Assuming 'balance_after' was meant to be 'balance'
+        balances = [float(r.balance) for r in self.records if r.balance is not None]
         if len(balances) < 5:
             return 500
 

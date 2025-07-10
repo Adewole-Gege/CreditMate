@@ -1,7 +1,7 @@
 # core/serializers.py
 from rest_framework import serializers
 from .models import CreditScore
-from audit.models import ScoreAuditLog  # Ensure this path is correct
+#from audit.models import ScoreAuditLog  # Ensure this path is correct
 
 
 class CreditScoreSerializer(serializers.ModelSerializer):
