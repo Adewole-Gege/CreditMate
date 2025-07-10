@@ -1,10 +1,12 @@
+# core/views.py
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from django.shortcuts import get_object_or_404
+
 from business.models import SME
 from .models import CreditScore
-from audit.models import ScoreAuditLog #TODO- Ensure this import matches actual ScoreAuditLog model location
+from audit.models import ScoreAuditLog
 from core.score_engine import CreditScoringEngine
 
 
@@ -38,7 +40,7 @@ class CreditScoreView(APIView):
                     score=credit_score.score,
                     risk_level=credit_score.risk_level,
                     data_version=credit_score.data_version,
-                    requested_by="api"  # You can link to a user or API key later
+                    requested_by="api"  # Replace with authenticated user if applicable
                 )
 
             data = {
@@ -81,7 +83,6 @@ class RiskLevelView(APIView):
                     }
                 )
 
-                # Log audit
                 ScoreAuditLog.objects.create(
                     sme=sme,
                     score=credit_score.score,

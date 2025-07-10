@@ -1,7 +1,7 @@
+# core/serializers.py
 from rest_framework import serializers
 from .models import CreditScore
 from audit.models import ScoreAuditLog  # Ensure this path is correct
-from core import validators
 
 
 class CreditScoreSerializer(serializers.ModelSerializer):
@@ -22,6 +22,7 @@ class CreditScoreSerializer(serializers.ModelSerializer):
             'data_version',
             'calculated_at',
         ]
+        read_only_fields = ['business_id', 'business_name', 'sector', 'state', 'calculated_at']
 
     def validate_score(self, value):
         if value < 0 or value > 1000:
