@@ -1,10 +1,10 @@
 # core/models.py
 from django.db import models
-from business.models import SME
+from business.models import Business
 
 
 class CreditScore(models.Model):
-    sme = models.OneToOneField(SME, on_delete=models.CASCADE, related_name='credit_score')
+    sme = models.OneToOneField(Business, on_delete=models.CASCADE, related_name='credit_score')
     score = models.PositiveIntegerField()
     risk_level = models.CharField(max_length=20)
     data_version = models.CharField(max_length=30)
