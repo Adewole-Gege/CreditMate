@@ -54,3 +54,15 @@ class BankStatement(models.Model):
 
     def __str__(self):
         return f"{self.reference} ({self.business.name})"
+
+
+# ingestion/models.py
+class BankTransaction(models.Model):
+    statement = models.ForeignKey('BankStatement', related_name='transactions', on_delete=models.CASCADE)
+    date = models.DateField()
+    amount = models.DecimalField(max_digits=12, decimal_places=2)
+    balance = models.DecimalField(max_digits=12, decimal_places=2)
+    description = models.TextField()
+    transaction_type = models.CharField(max_length=10)  # credit or debit
+    channel = models.CharField(max_length=20, null=True, blank=True)
+    counterparty = models.CharField(max_length=100, null=True, blank=True)

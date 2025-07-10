@@ -33,21 +33,20 @@ def ask_ai_to_structure(text):
     """
 
     # Prompt instructing the AI to format output in strict JSON
-    prompt = f"""
-    You are a data extraction assistant. From the following raw bank statement
-    text, extract a structured JSON array of transactions.
+    prompt = f"""Extract the bank statement table from the following text. Each row must contain:
+- date
+- amount
+- balance
+- description (narration)
+- transaction_type (credit/debit)
+- channel (POS, TRANSFER, USSD, CASH, ATM, etc.)
+- counterparty (if available)
 
-    Each transaction must have:
-    - date (ISO 8601 format)
-    - description
-    - amount (positive for credit, negative for debit)
-    - balance
+Return result as JSON array of objects.
 
-    Respond only with the array.
-
-    TEXT:
-    {text}
-        """.strip()
+Bank statement text:
+{text}
+""".strip()
 
     headers = {
         "Authorization": f"Bearer {OPENROUTER_API_KEY}",
