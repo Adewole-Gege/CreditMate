@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'audit',
     'rest_framework_simplejwt',
     'rest_framework_simplejwt.token_blacklist',
+    'drf_yasg'
 ]
 
 MIDDLEWARE = [
