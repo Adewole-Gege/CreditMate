@@ -1,6 +1,25 @@
-# 🏦 Business Credit Scoring API
+# CreditMate: a business credit scoring and risk assessment API
 
-A Django REST API for managing businesses and their credit scoring process, with user authentication, ownership-based permissions, and secure JWT login.
+CreditMate provides a comprehensive solution for small and medium enterprises (SMEs) to facilitate onboarding, financial data submission, credit scoring, and risk classification.
+
+---
+
+## Table of Contents
+
+- [Introduction](#creditmate-a-business-credit-scoring-and-risk-assessment-api)
+- [Table of Contents](#table-of-contents)
+- [Features](#-features)
+- [Tech Stack](#-tech-stack)
+- [Setup](#️-setup)
+- [Users API](#users-api-app-for-user-registration-and-auth)
+  - [Examples](#examples-for-user)
+- [Business API](#-business-api-app-for-business-models-and-views)
+  - [Examples](#examples-for-business)
+- [Ingestion API](#ingestion-api-app-for-uploading-and-downloading-financial-statements)
+  - [Examples](#examples-for-ingestion)
+- [Credit Scoring](#credit-scoring-and-risk-assessment-api-calculates-the-credit-score-of-the-business)
+  - [Examples](#examples-for-credit-scoring-and-risk-assessment)
+- [Alternative for testing endpoints](#alternative-for-testing-endpoints)
 
 ---
 
@@ -22,6 +41,51 @@ A Django REST API for managing businesses and their credit scoring process, with
 - Django REST Framework
 - SimpleJWT (for authentication)
 - django-filter (for search & filtering)
+
+---
+
+## 🛠️ Setup
+
+1. **Clone the repo**
+
+```bash
+    git clone https://github.com/Adewole-Gege/CreditMate.git
+    cd CreditMate/
+```
+
+2. **Create a virtual environment**
+
+```bash
+    python3 -m venv .env
+
+    # Activate the virtual environment
+    source .env/bin/activate
+```
+
+3. **Install Dependencies**
+
+```bash
+    pip install -r requirements.txt
+```
+
+4. **Run migrations**
+
+```bash
+    python manage.py makemigrations
+    python manage.py migrate
+```
+
+5. **Create superuser**
+
+```bash
+    python manage.py createsuperuser
+```
+
+6. **Run the server**
+
+```bash
+    python manage.py runserver
+```
 
 ---
 
@@ -207,7 +271,6 @@ curl --location --request DELETE 'http://localhost:8000/api/businesses/<int:busi
 | `/api/upload-statement/`       | POST   | Upload financial statement    |
 | `/api/download-statement/<int:statement_id>`       | GET    | Download financial statement |
 
-
 ### Examples for Ingestion
 
 ***You can get your OPEN ROUTER API KEY by visiting and creating an account*** [here](https://openrouter.ai/)
@@ -241,7 +304,7 @@ curl --location 'http://localhost:8000/api/download-statement/<int:statement_id>
 | `/api/score-from-statement/<int:business_id>`       | GET    | Get the credit score of a business |
 | `/api/risk/<int:business_id>`       | GET    | Returns risk level only for a given business |
 
-### Examples
+### Examples for credit scoring and risk assessment
 
 1. Getting the credit score
 
@@ -275,49 +338,3 @@ Drag (`CreditMate.postman_collection.json`) and drop it in postman and you can b
 |-----------|----------------------------------------|
 | Admin     | Full access to all businesses          |
 | User      | Can only access their own businesses   |
-| Anonymous | Can register and log in only           |
-
----
-
-## 🛠️ Setup
-
-1. **Clone the repo**
-
-```bash
-    git clone https://github.com/Adewole-Gege/CreditMate.git
-    cd CreditMate/
-```
-
-2. **Create a virtual environment**
-
-```bash
-    python3 -m venv .env
-
-    # Activate the virtual environment
-    source .env/bin/activate
-```
-
-3. **Install Dependencies**
-
-```bash
-    pip install -r requirements.txt
-```
-
-4. **Run migrations**
-
-```bash
-    python manage.py makemigrations
-    python manage.py migrate
-```
-
-5. **Create superuser**
-
-```bash
-    python manage.py createsuperuser
-```
-
-6. **Run the server**
-
-```bash
-    python manage.py runserver
-```
