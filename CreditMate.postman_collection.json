@@ -1,0 +1,1362 @@
+{
+	"info": {
+		"_postman_id": "f488f50e-f99f-4442-9443-afc62a267e2b",
+		"name": "CeditMate",
+		"description": "After you login, make sure you you set the refresh and access tokens as variables",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43469560"
+	},
+	"item": [
+		{
+			"name": "Auth and Business",
+			"item": [
+				{
+					"name": "Register a new user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"email\": \"testuser@example.com\",\n        \"first_name\": \"Test\",\n        \"last_name\": \"User\",\n        \"password\": \"TestPassword123\"\n      }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/register/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"register",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Register a new user",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n        \"email\": \"testuser@example.com\",\n        \"first_name\": \"Test\",\n        \"last_name\": \"User\",\n        \"password\": \"TestPassword123\"\n      }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/register/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"register",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 10 Jul 2025 17:14:28 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "71"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"email\": \"testuser@example.com\",\n    \"first_name\": \"Test\",\n    \"last_name\": \"User\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"email\": \"testuser@example.com\",\n        \"password\": \"TestPassword123\"\n      }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/token/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"token",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n        \"email\": \"testuser@example.com\",\n        \"password\": \"TestPassword123\"\n      }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/token/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"token",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 10 Jul 2025 17:14:46 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "483"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1MjI1NDA4NSwiaWF0IjoxNzUyMTY3Njg1LCJqdGkiOiI3N2MyZDQxNTRjN2E0ZmEzYTQ3YmZhMDNmMzJjYWJjZCIsInVzZXJfaWQiOjF9.6H_zpmoXC8HnAeOBZsYCk0Tw6aQXmoa1jvitN2cpfpQ\",\n    \"access\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUyMTY4NTg1LCJpYXQiOjE3NTIxNjc2ODUsImp0aSI6ImMxYTdlMjdmNTRmMjRmOTNhNjk2ZjdmZDk4MzhkOGNlIiwidXNlcl9pZCI6MX0.YX4ux1vYXWHSfd7rlIkxo7FOSj_mZK2jucwMTo5PUZ8\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Refresh Token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"refresh\": \"{{refresh_token}}\"\n      }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/token/refresh/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"token",
+								"refresh",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a business",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUyMTY4NTg1LCJpYXQiOjE3NTIxNjc2ODUsImp0aSI6ImMxYTdlMjdmNTRmMjRmOTNhNjk2ZjdmZDk4MzhkOGNlIiwidXNlcl9pZCI6MX0.YX4ux1vYXWHSfd7rlIkxo7FOSj_mZK2jucwMTo5PUZ8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"name\": \"TechNo Inc.\",\n        \"registration_number\": \"TN-2027\",\n        \"tax_id\": \"TIN-789456125\",\n        \"industry\": \"Technology\",\n        \"date_founded\": \"2020-01-01\",\n        \"website\": \"https://technov.example.com\",\n        \"email\": \"contact@technov.com\",\n        \"phone_number\": \"+1234567891\",\n        \"address\": \"43 Silicon Street\",\n        \"country\": \"USA\",\n        \"city\": \"San Francisco\"\n      }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/businesses/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"businesses",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create a business",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n        \"name\": \"TechNo Inc.\",\n        \"registration_number\": \"TN-2027\",\n        \"tax_id\": \"TIN-789456125\",\n        \"industry\": \"Technology\",\n        \"date_founded\": \"2020-01-01\",\n        \"website\": \"https://technov.example.com\",\n        \"email\": \"contact@technov.com\",\n        \"phone_number\": \"+1234567891\",\n        \"address\": \"43 Silicon Street\",\n        \"country\": \"USA\",\n        \"city\": \"San Francisco\"\n      }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/businesses/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"businesses",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 09 Jul 2025 21:59:22 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "402"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"name\": \"TechNo Inc.\",\n    \"registration_number\": \"TN-2027\",\n    \"tax_id\": \"TIN-789456125\",\n    \"industry\": \"Technology\",\n    \"date_founded\": \"2020-01-01\",\n    \"website\": \"https://technov.example.com\",\n    \"email\": \"contact@technov.com\",\n    \"phone_number\": \"+1234567891\",\n    \"address\": \"43 Silicon Street\",\n    \"country\": \"USA\",\n    \"city\": \"San Francisco\",\n    \"created_at\": \"2025-07-09T21:59:22.193115Z\",\n    \"updated_at\": \"2025-07-09T21:59:22.193176Z\",\n    \"owner\": 1\n}"
+						}
+					]
+				},
+				{
+					"name": "List all business by a user",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUyMTY4NTg1LCJpYXQiOjE3NTIxNjc2ODUsImp0aSI6ImMxYTdlMjdmNTRmMjRmOTNhNjk2ZjdmZDk4MzhkOGNlIiwidXNlcl9pZCI6MX0.YX4ux1vYXWHSfd7rlIkxo7FOSj_mZK2jucwMTo5PUZ8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/businesses/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"businesses",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "List all business by a user",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/businesses/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"businesses",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 10 Jul 2025 17:16:26 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "450"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"uuid\": \"4e2e80bc-7cde-4231-a85b-5d318f628a84\",\n        \"name\": \"TechNo Inc.\",\n        \"registration_number\": \"TN-2027\",\n        \"tax_id\": \"TIN-789456125\",\n        \"industry\": \"Technology\",\n        \"date_founded\": \"2020-01-01\",\n        \"website\": \"https://technov.example.com\",\n        \"email\": \"contact@technov.com\",\n        \"phone_number\": \"+1234567891\",\n        \"address\": \"43 Silicon Street\",\n        \"country\": \"USA\",\n        \"city\": \"San Francisco\",\n        \"created_at\": \"2025-07-10T17:15:19.456449Z\",\n        \"updated_at\": \"2025-07-10T17:15:19.456518Z\",\n        \"owner\": 1\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Retrieve one business",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUyMTY4NTg1LCJpYXQiOjE3NTIxNjc2ODUsImp0aSI6ImMxYTdlMjdmNTRmMjRmOTNhNjk2ZjdmZDk4MzhkOGNlIiwidXNlcl9pZCI6MX0.YX4ux1vYXWHSfd7rlIkxo7FOSj_mZK2jucwMTo5PUZ8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/businesses/1/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"businesses",
+								"1",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Retrieve one business",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8000/api/businesses/1/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"businesses",
+										"1",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 10 Jul 2025 17:16:53 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "448"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"uuid\": \"4e2e80bc-7cde-4231-a85b-5d318f628a84\",\n    \"name\": \"TechNo Inc.\",\n    \"registration_number\": \"TN-2027\",\n    \"tax_id\": \"TIN-789456125\",\n    \"industry\": \"Technology\",\n    \"date_founded\": \"2020-01-01\",\n    \"website\": \"https://technov.example.com\",\n    \"email\": \"contact@technov.com\",\n    \"phone_number\": \"+1234567891\",\n    \"address\": \"43 Silicon Street\",\n    \"country\": \"USA\",\n    \"city\": \"San Francisco\",\n    \"created_at\": \"2025-07-10T17:15:19.456449Z\",\n    \"updated_at\": \"2025-07-10T17:15:19.456518Z\",\n    \"owner\": 1\n}"
+						}
+					]
+				},
+				{
+					"name": "Update business",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUyMDk5NjE3LCJpYXQiOjE3NTIwOTg3MTcsImp0aSI6Ijk5MjM2MTk1MmE2NTRlMjBhNjdjYjU2MjBlMTE2OGQ4IiwidXNlcl9pZCI6MX0.PZKJ6kaGDgQg1AoZYa4CdEC77l1tB1CaokJ9vg_GN9c",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"name\": \"TechNova International\",\n        \"registration_number\": \"TN-2025\",\n        \"tax_id\": \"TIN-789456123\",\n        \"industry\": \"Tech & AI\",\n        \"date_founded\": \"2020-01-01\",\n        \"website\": \"https://technova.ai\",\n        \"email\": \"info@technova.ai\",\n        \"phone_number\": \"+1987654321\",\n        \"address\": \"42 Innovation Way\",\n        \"country\": \"USA\",\n        \"city\": \"San Jose\"\n      }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/businesses/1/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"businesses",
+								"1",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update business",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n        \"name\": \"TechNova International\",\n        \"registration_number\": \"TN-2025\",\n        \"tax_id\": \"TIN-789456123\",\n        \"industry\": \"Tech & AI\",\n        \"date_founded\": \"2020-01-01\",\n        \"website\": \"https://technova.ai\",\n        \"email\": \"info@technova.ai\",\n        \"phone_number\": \"+1987654321\",\n        \"address\": \"42 Innovation Way\",\n        \"country\": \"USA\",\n        \"city\": \"San Jose\"\n      }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/businesses/1/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"businesses",
+										"1",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 09 Jul 2025 22:05:33 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "396"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"name\": \"TechNova International\",\n    \"registration_number\": \"TN-2025\",\n    \"tax_id\": \"TIN-789456123\",\n    \"industry\": \"Tech & AI\",\n    \"date_founded\": \"2020-01-01\",\n    \"website\": \"https://technova.ai\",\n    \"email\": \"info@technova.ai\",\n    \"phone_number\": \"+1987654321\",\n    \"address\": \"42 Innovation Way\",\n    \"country\": \"USA\",\n    \"city\": \"San Jose\",\n    \"created_at\": \"2025-07-09T21:59:22.193115Z\",\n    \"updated_at\": \"2025-07-09T22:05:33.726020Z\",\n    \"owner\": 1\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Business",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/businesses/1/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"businesses",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ingestion",
+			"item": [
+				{
+					"name": "Upload Statement",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUyMTY4NTg1LCJpYXQiOjE3NTIxNjc2ODUsImp0aSI6ImMxYTdlMjdmNTRmMjRmOTNhNjk2ZjdmZDk4MzhkOGNlIiwidXNlcl9pZCI6MX0.YX4ux1vYXWHSfd7rlIkxo7FOSj_mZK2jucwMTo5PUZ8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": ""
+							},
+							{
+								"key": "API_KEY",
+								"value": "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",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"description": "Bank statement",
+									"type": "file",
+									"src": "/C:/Users/adewole.gege/Downloads/Bank Statement - First Bank of Nigeria.pdf"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/upload-statement/1/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"upload-statement",
+								"1",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Register a new user",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": ""
+									},
+									{
+										"key": "API_KEY",
+										"value": "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",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"description": "Bank statement",
+											"type": "file",
+											"src": "/C:/Users/adewole.gege/Downloads/Bank Statement - First Bank of Nigeria.pdf"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/upload-statement/1/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"upload-statement",
+										"1",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 10 Jul 2025 17:31:38 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "191"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Bank statement uploaded successfully\",\n    \"statement_id\": \"86c9ca3c-b6d6-4988-84cb-dc8588ef656d\",\n    \"start_date\": \"2025-06-01\",\n    \"end_date\": \"2025-06-30\",\n    \"income\": 5434000,\n    \"expenditure\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "Download Statement",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUyMTc4MjYzLCJpYXQiOjE3NTIxNzczNjMsImp0aSI6IjhhYzQ1Yjk1MTY2MDQ0Mjc4NmVhM2E5YmQ0Nzk3YTdjIiwidXNlcl9pZCI6MX0.Di4GC0zn2ybtSHAXmM8JDg-5hanvvSiNA3bioZ_LXLc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"email\": \"johndoe@example.com\",\n        \"password\": \"securePassword123\"\n      }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/download-statement/86c9ca3c-b6d6-4988-84cb-dc8588ef656d/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"download-statement",
+								"86c9ca3c-b6d6-4988-84cb-dc8588ef656d",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n        \"email\": \"testuser@example.com\",\n        \"password\": \"TestPassword123\"\n      }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/token/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"token",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 09 Jul 2025 21:48:38 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "483"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1MjE4NDExOCwiaWF0IjoxNzUyMDk3NzE4LCJqdGkiOiIxN2M3ZjAwMTM0OGM0OTRjYTA5ZGNmNjlmZjhlMmExZiIsInVzZXJfaWQiOjF9.-36-8cyrxjmRBVC96XpQ5cJfL1-J97uO2kTbrYVKeDE\",\n    \"access\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUyMDk4NjE4LCJpYXQiOjE3NTIwOTc3MTgsImp0aSI6ImY3ZGEzNTAwMmU3MzRjYWM4OWI2M2E3MzliNjQ1NzdhIiwidXNlcl9pZCI6MX0.ljN8Ti0qGqpqsrhSS6-aJ8eh_xQ1xxw1ERc9Y2nh-lI\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Engine",
+			"item": [
+				{
+					"name": "Score Business",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUyMTc5NDEzLCJpYXQiOjE3NTIxNzg1MTMsImp0aSI6Ijc3NWEyMjY1ZmY4ZjRiMGY4MTc1NThkOGNhMDU3NjU1IiwidXNlcl9pZCI6MX0.oKCtP5OljZwadG2LNtzVBMOD7dKUNaWmMxsmLftuyBE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"email\": \"testuser@example.com\",\n        \"first_name\": \"Test\",\n        \"last_name\": \"User\",\n        \"password\": \"TestPassword123\"\n      }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/score-from-statement/86c9ca3c-b6d6-4988-84cb-dc8588ef656d/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"score-from-statement",
+								"86c9ca3c-b6d6-4988-84cb-dc8588ef656d",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Register a new user",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n        \"email\": \"testuser@example.com\",\n        \"first_name\": \"Test\",\n        \"last_name\": \"User\",\n        \"password\": \"TestPassword123\"\n      }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/register/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"register",
+										""
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 09 Jul 2025 21:47:46 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "50"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"email\": [\n        \"User with this email already exists.\"\n    ]\n}"
+						},
+						{
+							"name": "Register a new user",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": ""
+									},
+									{
+										"key": "API_KEY",
+										"value": "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",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"description": "Bank statement",
+											"type": "file",
+											"src": "/C:/Users/adewole.gege/Downloads/Bank Statement - First Bank of Nigeria.pdf"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/upload-statement/1/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"upload-statement",
+										"1",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 10 Jul 2025 13:55:05 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "191"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Bank statement uploaded successfully\",\n    \"statement_id\": \"fb36a459-48bf-43d5-9525-915c6757e0eb\",\n    \"start_date\": \"2025-06-03\",\n    \"end_date\": \"2025-06-30\",\n    \"income\": 5434000,\n    \"expenditure\": 0\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
