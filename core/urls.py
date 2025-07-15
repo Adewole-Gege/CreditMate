@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import  RiskLevelView, ScoreFromStatementView
+from .views import RiskLevelView, ScoreFromStatementView
 
 urlpatterns = [
     path('risk/<int:business_id>/', RiskLevelView.as_view(), name='risk-level'),
