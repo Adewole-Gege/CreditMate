@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Web Page</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom font for Inter, if not already provided by Tailwind's default */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-100 to-purple-100 min-h-screen flex items-center justify-center p-4">
+
+    <div class="bg-white p-8 rounded-xl shadow-2xl max-w-lg w-full text-center space-y-6">
+        <h1 class="text-3xl font-extrabold text-gray-800 mb-6">Welcome to CreditMate</h1>
+        
+        <p class="text-lg text-gray-600 mb-8">
+            CreditMate provides a comprehensive solution for small and medium enterprises (SMEs) to facilitate onboarding, financial data submission, credit scoring, and risk classification.
+        </p>
+
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <a href="http://localhost:8000/redoc" target="_blank" rel="noopener noreferrer"
+               class="button bg-blue-600 hover:bg-blue-700 focus:ring-blue-500">
+                Redoc Documentation
+            </a>
+            <a href="https://github.com/Adewole-Gege/CreditMate" target="_blank" rel="noopener noreferrer"
+               class="button bg-purple-600 hover:bg-purple-700 focus:ring-purple-500">
+                Github repository
+            </a>
+            <a href="http://localhost:8000/swagger" target="_blank" rel="noopener noreferrer"
+               class="button bg-green-600 hover:bg-green-700 focus:ring-green-500">
+                Swagger Documentaion
+            </a>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.button').forEach(button => {
+            button.classList.add(
+                'inline-block', 'py-3', 'px-6', 'text-white', 'font-semibold',
+                'rounded-lg', 'shadow-md', 'transition-all', 'duration-300',
+                'ease-in-out', 'transform', 'hover:scale-105', 'hover:shadow-lg',
+                'focus:outline-none', 'focus:ring-4', 'focus:ring-opacity-75'
+            );
+        });
+    </script>
+</body>
+</html>

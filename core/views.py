@@ -7,6 +7,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.shortcuts import get_object_or_404
 from .score_engine import CreditScoringEngine  # Import the scoring engine
+from django.shortcuts import render
 
 class ScoreFromStatementView(APIView):
     def get(self, request, statement_id):
@@ -97,3 +98,10 @@ class RiskLevelView(APIView):
                 "error": "Failed to retrieve risk level.",
                 "details": str(e)
             }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+def home_view(request):
+    """
+    This view will serve the 'index.html' template located in the
+    'templates' directory
+    """
+    return render(request, 'index.html')
