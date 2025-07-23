@@ -89,6 +89,38 @@ CreditMate provides a comprehensive solution for small and medium enterprises (S
 
 ---
 
+## 🐳 Run with Docker
+
+1. **Install Prerequisites**
+
+Make sure you have the following installed:
+- [Docker](https://docs.docker.com/get-docker/)
+- [Docker Compose](https://docs.docker.com/compose/install/)
+
+2. **Clone the repo**
+
+```bash
+git clone https://github.com/Adewole-Gege/CreditMate.git
+cd CreditMate/
+```
+
+3. **Edit the .env file and provide the required values:**
+
+```bash
+PG_DATABASE=creditmate_db
+PG_USER=creditmate_user
+PG_PASSWORD=your_secure_password
+OPENROUTER_API_KEY=your_openrouter_key
+```
+
+4. **Build and start Docker containers**
+
+```bash
+docker-compose up --build
+```
+
+---
+
 ## Users API: app for user registration and auth
 
 ### 🔐 Authentication
